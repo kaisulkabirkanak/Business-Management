@@ -1,0 +1,210 @@
+﻿@model BusinessManagementSystemApp.Models.gmail
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Forgotten account</title>
+    <style>
+        #main {
+            position: absolute;
+            left: 30%;
+            top: 15%;
+            opacity: 0.8;
+            filter: alpha(opacity=30);
+            border-left: 9px solid red;
+            background-color: lightgrey;
+            /*border: 1px solid #ccc;*/
+            padding: 30px 30px;
+        }
+
+        th, td {
+            padding: 3px;
+        }
+
+        p, label {
+            color: black;
+        }
+
+        .field-validation-error {
+            color: darkgreen;
+        }
+
+        input[type = submit], input[type = reset] {
+            background-color: green;
+            border: none;
+            text-decoration: none;
+            color: white;
+            padding: 10px 10px;
+            margin: 8px 8px;
+            cursor: pointer;
+        }
+
+        input[type = reset] {
+            background-color: red;
+            border: none;
+            text-decoration: none;
+            color: white;
+            padding: 10px 10px;
+            margin: 10px 10px;
+            cursor: pointer;
+        }
+
+        .footer {
+            background: #002147;
+            height: auto;
+            padding-bottom: 30px;
+            position: relative;
+            width: 100%;
+            border-bottom: 1px solid #CCCCCC;
+            border-top: 1px solid #DDDDDD;
+        }
+
+
+            .footer h3 {
+                color: white;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 20px;
+                padding: 40px 0 0px;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+            }
+
+            .footer h4 {
+                color: white;
+                font-size: 2em;
+                font-weight: 600;
+                line-height: 38px;
+                padding: 40px 0 10px;
+                font-family: cursive;
+                font-weight: lighter
+            }
+
+            .footer ul {
+                font-size: 20px;
+                list-style-type: none;
+                margin-left: 0;
+                padding-left: 0;
+                margin-top: 0px;
+                color: #7F8C8D;
+                padding: 0 0 8px 0;
+            }
+
+                .footer ul li a {
+                    padding: 0 0 12px 0;
+                    display: block;
+                }
+
+            .footer a {
+                color: white;
+                font-weight: lighter;
+            }
+
+            .footer p {
+                color: white;
+                font-weight: lighter;
+            }
+
+        .footer-bottom {
+            margin-top: 1em;
+            border-top: 1px solid #DDDDDD;
+            padding-top: 5px;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="width:100%; margin-top:3%">
+        <div class="form-group row">
+            <div class="col-md-12">
+                <marquee style="background-color:aquamarine"><h3><b>Business Management System</b></h3></marquee>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-12">
+                <img src="~/Resourses/buildings-clouds-dawn.jpg" width="100%" height="550" />
+            </div>
+
+        </div>
+    </div>
+    <div id="main">
+        @using (Html.BeginForm("Index", "EmailSetup", FormMethod.Post, new { enctype = "multipart/from-data" }))
+        {
+        <center>
+            <h3>Recover business management account</h3>
+            <h2>Help Center</h2>
+            <h4>Tell us about your problem</h4>
+    <table>
+        <tr>
+            <td style="width:80px">
+                To:
+            </td>
+            <td>@Html.TextBoxFor(model => model.To, null, new { @class = "form-control", @placeholder = "hasan.authorize@gmail.com" })</td>
+        </tr>
+        <tr>
+            <td>
+                Subject:
+            </td>
+            <td>@Html.TextAreaFor(model => model.Subject, new { rows = "1", cols = "30" })</td>
+        </tr>
+        <tr>
+            <td valign="top">
+                Body:
+            </td>
+            <td>@Html.TextAreaFor(model => model.Body, new { rows = "12", cols = "40" })</td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="Send" />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <span style="color:green"> @ViewBag.Message</span>
+</center>
+
+        }
+    </div>
+    <footer>
+        <div class="footer" id="footer">
+
+
+            <div class="col-lg-3">
+                <h4> Md. Ibrahim Hasan & Kaisul Kabir Kanak </h4>
+            </div>
+            <div class="container">
+                <p class="pull-left copyright"> CSE06007245 & CSE 06007243 </p>
+
+
+            </div>
+            <div class="col-lg-3 col-sm-2">
+                <h3> Contact </h3>
+                <ul>
+                    <li><a class="email" href="#"><b>Email:</b> hasanjavg@gmail.com  &&<b>Phone:</b> +8801768868826 </a></li>
+                    <li><a class="email" href="#"><b>Email:</b>kanak@gmail.com  &&  <b>Phone:</b> +8801633052422 </a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="container">
+                <p class="pull-left copyright"> Copyright © Ibrahim & Kanak 2019. All right reserved. </p>
+
+
+            </div>
+
+        </div>
+
+    </footer>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>
